@@ -5,11 +5,17 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utilities.DependencyUtilities;
 
 public class CommonSteps {
 
     WebDriver driver;
+    DependencyUtilities dependencyUtilitiesService;
 
+    public CommonSteps(DependencyUtilities dependencyUtilitiesService) {
+        super();
+        this.dependencyUtilitiesService = dependencyUtilitiesService;
+    }
     @Before(order = 0) //this hook is executed before each Scenario
     public void startChromeDriver(){
         System.setProperty(Enums.CHROME_DRIVER_KEY.getEnum(), Enums.DRIVER_PATH.getEnum());

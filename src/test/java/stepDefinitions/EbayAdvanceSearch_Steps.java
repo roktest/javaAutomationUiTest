@@ -8,12 +8,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import utilities.DependencyUtilities;
 
 public class EbayAdvanceSearch_Steps {
+    DependencyUtilities dependencyUtilitiesService;
     CommonActions commonActions;
     EbayAdvanceSearch_ActionsFactory ebayAdvanceSearchActionsFactory;
 
-    public EbayAdvanceSearch_Steps(CommonActions commonActions, EbayAdvanceSearch_ActionsFactory ebayAdvanceSearchActionsFactory){
+    public EbayAdvanceSearch_Steps(DependencyUtilities dependencyUtilitiesService, CommonActions commonActions, EbayAdvanceSearch_ActionsFactory ebayAdvanceSearchActionsFactory){
+        super();
+        this.dependencyUtilitiesService = dependencyUtilitiesService;
         this.commonActions = commonActions;
         this.ebayAdvanceSearchActionsFactory = ebayAdvanceSearchActionsFactory;
     }

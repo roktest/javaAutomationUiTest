@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:TestsReport.html", "json:TestsReport.json"},
         dryRun = false,
         monochrome = true,
-        tags = "@Ebay"
+        tags = "@p1 and @iphone11 and @setCookies and @unsetCookies"
 )
 public class CucumberTestRunner {
 }

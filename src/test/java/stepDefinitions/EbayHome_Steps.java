@@ -7,12 +7,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import utilities.DependencyUtilities;
 
 public class EbayHome_Steps {
+    DependencyUtilities dependencyUtilitiesService;
     CommonActions commonActions;
     EbayHome_ActionsFactory ebayHomeActionsFactory;
 
-    public EbayHome_Steps(CommonActions commonActions, EbayHome_ActionsFactory ebayHomeActionsFactory) {
+    public EbayHome_Steps(DependencyUtilities dependencyUtilitiesService, CommonActions commonActions, EbayHome_ActionsFactory ebayHomeActionsFactory) {
+        super();
+        this.dependencyUtilitiesService = dependencyUtilitiesService;
         this.commonActions = commonActions;
         this.ebayHomeActionsFactory = ebayHomeActionsFactory;
     }
