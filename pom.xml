@@ -13,11 +13,16 @@
         <maven.compiler.target>19</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <cucumber.version>7.10.1</cucumber.version>
+        <poi.version>5.2.3</poi.version>
     </properties>
 
     <build>
         <plugins>
             <plugin>
+                <!-->
+                maven-surefire-plugin is designed for running unit tests and if any
+                of the tests fail then it will fail the build immediately
+                <-->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M7</version>
@@ -28,6 +33,9 @@
                 </configuration>
             </plugin>
             <plugin>
+                <!-->
+                The Compiler Plugin is used to compile the sources of your project
+                <-->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
@@ -86,6 +94,18 @@
             <artifactId>slf4j-simple</artifactId>
             <version>2.0.6</version>
             <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi.version}</version>
         </dependency>
 
     </dependencies>

@@ -44,3 +44,11 @@ Feature: Ebay home page Scenarios
       | Ofertas               | https://www.ebay.com/globaldeals                                  | Daily Deals                    |
       | Vender                | https://www.ebay.com/sl/sell                                      | Selling                        |
 
+  @navigationMenuDataTable2
+  Scenario Outline: As user I want to click each available menu of the Ebay home page provided in excel file and validate if the page title is ok
+    Given I am on Ebay home page
+    And I have the excel file and its location with the available menus
+
+    Examples:
+      | Excel         | Location                                                                                          | Sheet           |
+      | TestData.xlsx | C:\Users\Rodri\intellij-workspace\com.ebay.automation.demo\src\test\resources\files\TestData.xlsx | TestData_Sheet1 |

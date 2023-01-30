@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:TestsReport.html", "json:TestsReport.json"},
         dryRun = false,
         monochrome = true,
-        tags = "@p1 and @iphone11 and @setCookies and @unsetCookies"
+        tags = "navigationMenuDataTable2"
 )
 public class CucumberTestRunner {
 }

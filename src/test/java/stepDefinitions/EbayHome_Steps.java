@@ -3,11 +3,19 @@ package stepDefinitions;
 import actionFactories.CommonActions;
 import actionFactories.EbayHome_ActionsFactory;
 import enums.Enums;
+import io.cucumber.java.DataTableType;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import utilities.DependencyUtilities;
+import utilities.ExcelConfiguration;
+import utilities.ExcelDataReader;
+import utilities.IDataReader;
+
+import java.util.List;
+import java.util.Map;
 
 public class EbayHome_Steps {
     DependencyUtilities dependencyUtilitiesService;
@@ -113,6 +121,29 @@ public class EbayHome_Steps {
             Assert.fail();
             System.out.println("Test failed");
         }
+    }
+
+    @And("I have the excel file and its location with the available menus")
+    public void i_have_the_excel_file_and_its_location_with_the_available_menus(IDataReader dataTable) {
+        System.out.println(dataTable.getAllRows());
+        List<Map<String, String>> data = dataTable.getAllRows();
+        System.out.println(data.get(3).get("expectedPageTitle"));
+    }
+
+    // create another method for the excel file
+    // parameter to the method will be a map object
+    // IDataReader will be return type
+    // @DataTableType will let the cucumber framework know that we have a different implementation for converting the data table
+    @DataTableType
+    public IDataReader excelToDataTable(Map<String, String> entry){
+        // [Excel=<fileName>, ExcelLocation=<FileLocation>, ...]
+        ExcelConfiguration excelConfiguration = new ExcelConfiguration.ExcelConfigurationBuilder()
+                .setFileName(entry.get("Excel"))
+                .setFileLocation(entry.get("Location"))
+                .setSheetName(entry.get("Sheet"))
+                .setIndex(Integer.valueOf(entry.getOrDefault("Index", "0")))
+                .build();
+        return new ExcelDataReader(excelConfiguration);
     }
 
 }
