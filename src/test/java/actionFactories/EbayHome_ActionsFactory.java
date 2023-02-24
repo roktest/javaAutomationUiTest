@@ -15,7 +15,7 @@ public class EbayHome_ActionsFactory {
     EbayHome_ElementsFactory ebayHomeElements;
 
     public EbayHome_ActionsFactory(CommonSteps commonSteps){
-        this.driver = commonSteps.getDriver();
+        this.driver = commonSteps.getChromeDriver();
         this.ebayHomeElements = new EbayHome_ElementsFactory(driver);
     }
 

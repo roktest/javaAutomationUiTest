@@ -11,7 +11,7 @@ public class EbayAdvanceSearch_ActionsFactory {
     EbayAdvanceSearch_ElementsFactory ebayAdvanceSearchElements;
 
     public EbayAdvanceSearch_ActionsFactory(CommonSteps commonSteps){
-        this.driver = commonSteps.getDriver();
+        this.driver = commonSteps.getChromeDriver();
         this.ebayAdvanceSearchElements = new EbayAdvanceSearch_ElementsFactory(driver);
         // we can instantiate another ElementFactory if we need it
     }

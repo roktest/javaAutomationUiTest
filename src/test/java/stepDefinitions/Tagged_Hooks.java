@@ -16,7 +16,7 @@ public class Tagged_Hooks {
     public Tagged_Hooks(DependencyUtilities dependencyUtilitiesService, CommonSteps commonSteps){
         super();
         this.dependencyUtilitiesService = dependencyUtilitiesService;
-        this.driver = commonSteps.getDriver();
+        this.driver = commonSteps.getChromeDriver();
         this.dependencyUtilitiesService = dependencyUtilitiesService;
     }
 
@@ -29,13 +29,8 @@ public class Tagged_Hooks {
 
     @After(order = 1, value = "@unsetCookies") //will be executed after the scenarios which have @unsetCookies as particular tag
     public void unsetCookies(Scenario scenario) {
-        if (scenario.isFailed()){
-            final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png", " Status: " + scenario.getStatus().toString() + ". Click to see attached screenshot");
-        } else {
-            final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png", " Status: " + scenario.getStatus().toString() + ". Click to see attached screenshot");
-        }
+        final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+        scenario.attach(screenshot, "image/png", " Status: " + scenario.getStatus().toString() + ". Click to see attached screenshot");
         System.out.println("-----------------------------------------------");
         System.out.println("** Scenario specific after hook - setCookies **");
         System.out.println("-----------------------------------------------");

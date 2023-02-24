@@ -8,7 +8,7 @@ public class CommonActions {
     WebDriver driver;
 
     public CommonActions(CommonSteps commonSteps){
-        this.driver = commonSteps.getDriver();
+        this.driver = commonSteps.getChromeDriver();
     }
 
     public void go_to_url(String url){
@@ -23,7 +23,4 @@ public class CommonActions {
         return driver.getTitle();
     }
 
-    public void quit_driver(){
-        driver.quit();
-    }
 }
